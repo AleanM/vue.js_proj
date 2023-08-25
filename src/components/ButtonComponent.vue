@@ -1,28 +1,28 @@
 <template>
-    <div class="center-button-container">
-    <button class="center-button" @click="openModal">Открыть модальное окно</button>
-  </div>
-  </template>
   
-  <script>
-  export default {
-    methods: {
-      openModal() {
-        this.$emit('open');
-      }
-    }
-  };
-  </script>
+ 
 
+    <button class="center-button" @click="openModal">Налоговый вычет</button>
+
+</template>
+
+<script>
+export default {
+  methods: {
+    openModal() {
+      this.$emit('open');
+    }
+  }
+};
+</script>
 <style scoped>
-.center-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; /* Высота 100% видимого окна */
-}
 
 .center-button {
+  margin-top: 50vh;
   padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  border-radius: 7px;
 }
 </style>

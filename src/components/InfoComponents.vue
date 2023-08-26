@@ -1,5 +1,6 @@
 <template>
-    <div class="title">
+    <div class="page-container">
+        <div class="title">
         <h3>Спасибо!</h3>
         <h3>Налоги успешно оплачены!</h3>
         <div class="success"></div>
@@ -24,22 +25,27 @@
             </div>
             <div class="info-section">
                 <h4>Ваш доход за полгода</h4>
-                <h4>{{ formData.income }}</h4>
+                <h4>{{ formData.income }}₸</h4>
             </div>
             <div class="info-section">
                 <ul class="no-bullets">
                     <li class="nalogs-info" v-for="option in selectedOptions" :key="option.label">
                         <span class="tax-name">{{ option.label }}</span>
-                        <span class="tax-amount">{{ option.value }}</span>
+                        <span class="tax-amount">{{ option.value }}₸</span>
                     </li>
                 </ul>
             </div>
             <div class="info-section">
                     <h4 >Итого оплачено за полугодие</h4>
-                    <h4 >{{ totalSum }}</h4>
+                    <h4 >{{ totalSum }}₸</h4>
             </div>
         </div>
-      
+       </div>
+       <div class="ref-to-main">
+      <router-link to="/" class="return-link">
+        Вернуться на главную
+      </router-link>
+     </div>
     </div>
 </template>
 
@@ -57,6 +63,21 @@ export default {
 }
 </script>
 <style>
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px; /* Добавляем небольшой отступ снизу */
+}
+
+.ref-to-main {
+  margin-top: 40px;
+  text-align: center; /* Центрируем текст ссылки */
+  font-size: 25px;
+  font-weight: bolder;
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -65,6 +86,11 @@ export default {
   margin-bottom: 20px;
 }
 
+
+.return-link {
+  color: black; /* Устанавливаем черный цвет текста ссылки */
+  text-decoration: none; /* Убираем подчеркивание */
+}
 
 .success {
     width: 60px;
@@ -135,4 +161,6 @@ export default {
 .tax-amount {
     text-align: right;
 }
+
+
 </style>

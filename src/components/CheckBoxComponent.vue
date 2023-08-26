@@ -31,11 +31,10 @@ import SummComponent from './SummComponent.vue';
 export default {
   components:{
     SummComponent,
-
   },
   computed: {
     receivedData() {
-      return this.$store.state.data;
+      return this.$store.state.income;
     }
   },
   data() {
@@ -78,8 +77,19 @@ export default {
         // Показываем сообщение пользователю
         return;
       }
-      console.log(this.selectedOptions);
+
+      const selectedOptionsData = this.selectedOptions.map(index => {
+        const option = this.options[index];
+        return {
+          label: option.label,
+          value: (this.receivedData * option.percent) / 100,
+        };
+      });
+
+      this.$store.dispatch('setSelectedOptions', selectedOptionsData);
+      this.$router.push('/finish');
     },
+    
     calculatePercentage(percent) {
       const sum = (this.receivedData * percent) / 100;
       return sum

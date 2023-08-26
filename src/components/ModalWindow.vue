@@ -9,12 +9,16 @@
       <div class="modal-content" @click.stop>
         <button class="close-button" @click="closeModal">×</button>
         <slot></slot>
+        
       </div>
     </div>
   </template>
   
   <script>
+
+
   export default {
+   
     data() {
       return {
         isDragging: false,
@@ -94,7 +98,7 @@
     right: 10px;
     background: none;
     border: none;
-    font-size: 18px;
+    font-size: 40px;
     cursor: pointer;
   }
   </style>

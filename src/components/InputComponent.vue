@@ -53,14 +53,6 @@
     validateNumber() {
       this.iinValue = this.iinValue.replace(/\D/g, ''); // Убираем все, кроме цифр
     },sendData() {
-      // Собираем данные формы и передаем их родительскому компоненту
-      //  const formData = {
-      //    name: this.nameValue,
-      //    lastName: this.lastNameValue,
-      //    selectedOption: this.selectedOption,
-      //    iin: this.iinValue,
-      //    income: this.incomeValue
-      //  };
        this.$store.dispatch('updateData', this.incomeValue);
       this.$router.push('/nalog'); // Передаем данные через событие 'submit'
     }

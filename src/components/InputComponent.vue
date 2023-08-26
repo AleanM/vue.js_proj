@@ -53,15 +53,35 @@
     validateNumber() {
       this.iinValue = this.iinValue.replace(/\D/g, ''); // Убираем все, кроме цифр
     },sendData() {
-       this.$store.dispatch('incomeData', this.incomeValue);
-       this.$store.commit('updateFormData', {
-        name: this.nameValue,
-        lastName: this.lastNameValue,
-        selectedOption: this.selectedOption,
-        iin: this.iinValue,
-        income: this.incomeValue
-      });
-      this.$router.push('/nalog'); // Передаем данные через событие 'submit'
+      const validIIN = this.iinValue.length === 12;
+      const validIncome = this.incomeValue > 0 && this.incomeValue <= 150000000;
+      const validName = this.nameValue.trim().length > 0;
+      const validLastName = this.lastNameValue.trim().length > 0;
+
+      const isValidData = validIIN && validIncome && validName && validLastName;
+
+
+      if (isValidData) {
+        this.$store.dispatch('incomeData', this.incomeValue);
+        this.$store.commit('updateFormData', {
+          name: this.nameValue,
+          lastName: this.lastNameValue,
+          selectedOption: this.selectedOption,
+          iin: this.iinValue,
+          income: this.incomeValue
+        });
+        this.$router.push('/nalog'); // Передаем данные через событие 'submit'
+      } else {
+        if (!validName) {
+          alert('Введите имя');
+        } else if (!validLastName) {
+          alert('Введите фамилию');
+        } else if (!validIIN) {
+          alert('ИИН должен состоять из 12 цифр');
+        } else {
+          alert('Доход должен быть больше 0 и не превышать 150000000');
+        }
+      }
     },
   }
   };

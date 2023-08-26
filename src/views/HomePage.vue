@@ -14,6 +14,7 @@
   import TextTitleComponent from '../components/TextTitleComponent.vue';
   import InputComponent from '../components/InputComponent.vue';
   
+
   export default {
     components: {
       ModalWindow,
@@ -23,9 +24,10 @@
     },
     data() {
       return {
-        isModalOpen: false
+        isModalOpen: false,
       };
     },
+
     methods: {
       openModal() {
         this.isModalOpen = true;

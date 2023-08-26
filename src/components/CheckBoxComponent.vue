@@ -1,56 +1,74 @@
 <template>
-    <div>
-        {{ receivedData }}
+  <div class="page-container">
+    <div class="income-container">
+   
+    <p class="received-data">Ваш доход за полугодие: {{ receivedData }}</p>
+
     </div>
     <div class="checkbox-container">
       <form @submit="handleSubmit">
-        <label class="checkbox-label">
-          <input type="checkbox" v-model="selectedOptions" value="option1" />
-          <div class="checkbox-custom"></div>
-          <span class="option-sum">70 000</span>
-          <span class="option-label">ИПН</span>
-          <span class="option-description">(3% от дохода)</span>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" v-model="selectedOptions" value="option2" />
-          <div class="checkbox-custom"></div>
-          <span class="option-sum">5 000</span>
-          <span class="option-label">СО</span>
-          <span class="option-description">(3,5% от дохода, но не меньше 5000)</span>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" v-model="selectedOptions" value="option3" />
-          <div class="checkbox-custom"></div>
-          <span class="option-sum">13 000</span>
-          <span class="option-label">ОПВ</span>
-          <span class="option-description">(10% от дохода)</span>
-        </label>
-        <label class="checkbox-label">
-          <input type="checkbox" v-model="selectedOptions" value="option4" />
-          <div class="checkbox-custom"></div>
-          <span class="option-sum">40 000</span>
-          <span class="option-label">ВОСМС</span>
-          <span class="option-description">(5% от дохода)</span>
-        </label>
-        <button type="submit" :disabled="selectedOptions.length === 0">Оплатить</button>
+        <label v-for="(option, index) in options" :key="index" class="checkbox-label">
+        <input type="checkbox" v-model="selectedOptions" :value="index" />
+        <div class="checkbox-custom"></div>
+        <span class="option-sum">{{ calculatePercentage(option.percent) }}</span>
+        <span class="option-label">{{ option.label }}</span>
+        <span class="option-description">{{ option.description }}</span>
+      </label>
+        <button class="pay-btn" type="submit" :disabled="selectedOptions.length === 0">Оплатить</button>
       <p v-if="selectedOptions.length === 0" class="error-message">Выберите хотя бы одну опцию</p>
       </form>
     </div>
+    <div class="for-sum">
+      <SummComponent />
+    </div>
+  </div>
+    
   </template>
   
   <script>
+import SummComponent from './SummComponent.vue';
 
 export default {
-   
-  data() {
-    return {
-      selectedOptions: [],
+  components:{
+    SummComponent,
 
-    };
   },
   computed: {
     receivedData() {
       return this.$store.state.data;
+    }
+  },
+  data() {
+    return {
+      selectedOptions: [],
+      options: [
+        {
+          percent: 3,
+          label: 'ИПН',
+          description: '(3% от дохода)',
+        },
+        {
+          percent: 3.5,
+          label: 'СО',
+          description: '(3,5% от дохода, но не меньше 5000)',
+        },
+        {
+          percent: 10,
+          label: 'ОПВ',
+          description: '(10% от дохода)',
+        },
+        {
+          percent: 5,
+          label: 'ВОСМС',
+          description: '(5% от дохода)',
+        },
+      ],
+    };
+  },
+  watch: {
+    selectedOptions: {
+      handler: 'calculateTotalSum', // Вызываем метод при изменении selectedOptions
+      deep: true // Следим за изменениями вложенных объектов в selectedOptions
     }
   },
   methods: {
@@ -61,25 +79,82 @@ export default {
         return;
       }
       console.log(this.selectedOptions);
+    },
+    calculatePercentage(percent) {
+      const sum = (this.receivedData * percent) / 100;
+      return sum
+    },calculateTotalSum() {
+      let totalSum = 0;
+
+      this.selectedOptions.forEach(index => {
+        const option = this.options[index];
+        const sum = (this.receivedData * option.percent) / 100;
+        totalSum += sum;
+      });
+
+      this.$store.dispatch('setTotalSum', totalSum);
     }
   }
 };
 </script>
   
   <style scoped>
-  .checkbox-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-  }
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Предотвращаем появление вертикального скролла */
+}
+.income-container{
+  font-weight: bolder;
+  font-size: 30px;
+
+}
+.checkbox-container {
+  min-height: 50%; /* Задаем минимальную высоту для контейнера */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.for-sum {
+  min-height: 10%;
+
+}
 
   .error-message {
   color: red;
   margin-top: 5px;
 }
   
+.pay-btn{
+  padding: 10px 20px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 700px;
+  height: 70px;
+  -webkit-transition-duration: 0.4s; 
+  transition-duration: 0.4s;
+}
+
+.pay-btn:hover{
+  background-color: whitesmoke;
+    color: black;
+    font-weight: bolder;
+    border: 3px solid #000000;
+}
+
+
+
   .checkbox-label {
     display: flex;
     align-items: center;

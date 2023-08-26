@@ -3,20 +3,31 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    data: null,
-    totalSum: 0
+    income: null,
+    totalSum: 0,
+    selectedOptions: [],
+    formData: {},
   },
   mutations: {
-    setData(state, payload) {
-      state.data = payload;
+    SET_SELECTED_OPTIONS(state, selectedOptions) {
+      state.selectedOptions = selectedOptions;
+    },
+    setIncome(state, payload) {
+      state.income = payload;
     },
     setTotalSum(state, totalSum) {
       state.totalSum = totalSum;
     },
+    updateFormData(state, formData) {
+      state.formData = formData; // Обновляем данные в хранилище
+    },
   },
   actions: {
-    updateData({ commit }, newData) {
-      commit('setData', newData);
+    setSelectedOptions({ commit }, selectedOptions) {
+      commit('SET_SELECTED_OPTIONS', selectedOptions);
+    },
+    incomeData({ commit }, newData) {
+      commit('setIncome', newData);
     },setTotalSum({ commit }, totalSum) {
       commit('setTotalSum', totalSum);
     },

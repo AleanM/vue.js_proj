@@ -1,6 +1,4 @@
 <template>
-  
- 
 
     <button class="center-button" @click="openModal">Налоговый вычет</button>
 
@@ -15,14 +13,25 @@ export default {
   }
 };
 </script>
-<style scoped>
 
+<style scoped>
 .center-button {
-  margin-top: 50vh;
+  display: block;
+  margin: 0 auto;
   padding: 10px 20px;
   background-color: white;
+  font-weight: bolder;
   color: black;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 7px;
+  margin-top: 50vh;
+  cursor: pointer;
+}
+
+.center-button:hover {
+  background-color: black;
+  color: white;
+  font-weight: bolder;
+  border: 3px solid #000000;
 }
 </style>

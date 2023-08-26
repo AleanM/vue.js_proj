@@ -34,10 +34,6 @@
       },
       closeModal() {
         this.isModalOpen = false;
-      },
-      handleFormSubmit(formData) {
-        // В этом методе вы можете обработать полученные данные от формы
-        console.log(formData);
       }
     }
   };

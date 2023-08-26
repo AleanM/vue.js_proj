@@ -5,16 +5,16 @@
   
   <style>
   .text{
-    text-align: left; /* Выравниваем текст по левому краю */
-    margin: 0; /* Сбрасываем внешние отступы */
-    padding: 0; /* Сбрасываем внутренние отступы */
+    text-align: left; 
+    margin: 0; 
+    padding: 0; 
     margin-top: 15px;
     font-size: 18px;
   }
   .title {
-    text-align: left; /* Выравниваем текст по левому краю */
-    margin: 0; /* Сбрасываем внешние отступы */
-    padding: 0; /* Сбрасываем внутренние отступы */
-    font-size: 25px; /* Увеличиваем размер текста на 18 пикселей (или другое значение по вашему выбору) */
+    text-align: left;
+    margin: 0; 
+    padding: 0; 
+    font-size: 25px; 
   }
   </style>

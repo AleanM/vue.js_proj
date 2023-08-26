@@ -27,16 +27,19 @@
     <div class="input-income">
        <div class="input-group">
          <label class="input-label">Ваш доход за полгода:</label>
-         <input class="text-input larger-dropdown" v-model="incomeValue" @input="validateNumber" placeholder="Доход" min="1" max="150000000">
+         <input class="text-input larger-dropdown" v-model="incomeValue" @input="validateNumber" v-bind:incomeValue="someValue" placeholder="Доход" min="1" max="150000000">
        </div>
     </div>
     <div class="submit-button">
-      <button class="submit-btn" @click="submitForm">Рассчитать</button>
+      <button class="submit-btn" @click="sendData">Рассчитать</button>
     </div>
   </template>
   
   <script>
+
+
   export default {
+
     data() {
       return {
         nameValue: '',
@@ -45,20 +48,20 @@
         iinValue: '',
         incomeValue: ''
       };
-    },
+    }, 
   methods: {
     validateNumber() {
       this.iinValue = this.iinValue.replace(/\D/g, ''); // Убираем все, кроме цифр
-    },submitForm() {
+    },sendData() {
       // Собираем данные формы и передаем их родительскому компоненту
-      const formData = {
-        name: this.nameValue,
-        lastName: this.lastNameValue,
-        selectedOption: this.selectedOption,
-        iin: this.iinValue,
-        income: this.incomeValue
-      };
-      this.$emit('submit', formData);
+      //  const formData = {
+      //    name: this.nameValue,
+      //    lastName: this.lastNameValue,
+      //    selectedOption: this.selectedOption,
+      //    iin: this.iinValue,
+      //    income: this.incomeValue
+      //  };
+       this.$store.dispatch('updateData', this.incomeValue);
       this.$router.push('/nalog'); // Передаем данные через событие 'submit'
     }
   }

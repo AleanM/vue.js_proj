@@ -1,5 +1,10 @@
 <template>
   <div class="page-container">
+    <div class="ref-to-main">
+      <router-link to="/" class="return-link">
+        <i class="arrow-icon">&lt;</i> Заплатить налоги за ИП
+      </router-link>
+    </div>
     <div class="income-container">
    
     <p class="received-data">Ваш доход за полугодие: {{ receivedData }}</p>
@@ -116,6 +121,9 @@ export default {
   justify-content: center;
   overflow: hidden; /* Предотвращаем появление вертикального скролла */
 }
+.received-data::after{
+  content: "₸";
+}
 .income-container{
   font-weight: bolder;
   font-size: 30px;
@@ -135,11 +143,34 @@ export default {
 
 }
 
+
   .error-message {
   color: red;
   margin-top: 5px;
 }
   
+
+.ref-to-main {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.arrow-icon {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-right: 5px;
+}
+
+.return-link {
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .pay-btn{
   padding: 10px 20px;
   background-color: #000000;

@@ -13,8 +13,8 @@
       <div class="input-group centered">
         <label class="input-label">Режим налогооблажения:</label>
         <select class="dropdown larger-dropdown" v-model="selectedOption">
-          <option value="select1">Упрощённый</option>
-          <option value="select2">Общеустановленный</option>
+          <option value="Упрощённый">Упрощённый</option>
+          <option value="Общеустановленный">Общеустановленный</option>
         </select>
       </div>
     </div>
@@ -44,7 +44,7 @@
       return {
         nameValue: '',
         lastNameValue: '',
-        selectedOption: 'select1',
+        selectedOption: 'Общеустановленный',
         iinValue: '',
         incomeValue: ''
       };
@@ -53,9 +53,16 @@
     validateNumber() {
       this.iinValue = this.iinValue.replace(/\D/g, ''); // Убираем все, кроме цифр
     },sendData() {
-       this.$store.dispatch('updateData', this.incomeValue);
+       this.$store.dispatch('incomeData', this.incomeValue);
+       this.$store.commit('updateFormData', {
+        name: this.nameValue,
+        lastName: this.lastNameValue,
+        selectedOption: this.selectedOption,
+        iin: this.iinValue,
+        income: this.incomeValue
+      });
       this.$router.push('/nalog'); // Передаем данные через событие 'submit'
-    }
+    },
   }
   };
   </script>

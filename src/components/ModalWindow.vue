@@ -1,4 +1,5 @@
 <template>
+  
     <div
       class="modal-window"
       @click="closeModal"
@@ -6,7 +7,9 @@
       @mousemove="handleMouseMove"
       @mouseup="handleMouseUp"
     >
+
       <div class="modal-content" @click.stop>
+        <div class="top-bar"></div>
         <button class="close-button" @click="closeModal">×</button>
         <slot></slot>
         
@@ -46,7 +49,7 @@
       handleMouseUp() {
         if (this.isDragging) {
           // Determine the threshold for closing the modal
-          const threshold = 100; // Adjust this value as needed
+          const threshold = 50; // Adjust this value as needed
           if (Math.abs(this.translateY) > threshold) {
             this.closeModal();
           }
@@ -63,6 +66,17 @@
   </script>
   
   <style scoped>
+  .top-bar {
+  width: 40px;
+  height: 3px;
+  background-color: black; /* Используйте желаемый цвет */
+  position: absolute;
+  top: 10px; /* Регулируйте отступ сверху */
+  left: 50%;
+  opacity: 0.3;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
   .modal-window {
     position: fixed;
     top: 0;

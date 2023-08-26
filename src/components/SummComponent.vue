@@ -1,6 +1,6 @@
 <template>
-   <div>
-    <h1>Итого к оплате: {{ totalSum }}</h1>
+   <div class="money-component">
+    <h1>Итого к оплате: {{ totalSum }}₸</h1>
    </div>
 </template>
 

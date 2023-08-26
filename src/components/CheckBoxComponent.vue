@@ -20,7 +20,7 @@
         <span class="option-description">{{ option.description }}</span>
       </label>
         <button class="pay-btn" type="submit" :disabled="selectedOptions.length === 0">Оплатить</button>
-      <p v-if="selectedOptions.length === 0" class="error-message">Выберите хотя бы одну опцию</p>
+        <p v-if="selectedOptions.length === 0" class="error-message">Выберите хотя бы одну опцию</p>
       </form>
     </div>
     <div class="for-sum">
@@ -71,15 +71,14 @@ export default {
   },
   watch: {
     selectedOptions: {
-      handler: 'calculateTotalSum', // Вызываем метод при изменении selectedOptions
-      deep: true // Следим за изменениями вложенных объектов в selectedOptions
+      handler: 'calculateTotalSum', 
+      deep: true
     }
   },
   methods: {
     handleSubmit(event) {
       event.preventDefault();
       if (this.selectedOptions.length === 0) {
-        // Показываем сообщение пользователю
         return;
       }
 
@@ -87,7 +86,7 @@ export default {
         const option = this.options[index];
         return {
           label: option.label,
-          value: (this.receivedData * option.percent) / 100,
+          value: Math.floor((this.receivedData * option.percent) / 100),
         };
       });
 
@@ -96,14 +95,14 @@ export default {
     },
     
     calculatePercentage(percent) {
-      const sum = (this.receivedData * percent) / 100;
+      const sum = Math.floor((this.receivedData * percent) / 100);
       return sum
     },calculateTotalSum() {
       let totalSum = 0;
 
       this.selectedOptions.forEach(index => {
         const option = this.options[index];
-        const sum = (this.receivedData * option.percent) / 100;
+        const sum = Math.floor((this.receivedData * option.percent) / 100);
         totalSum += sum;
       });
 
@@ -119,7 +118,7 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Предотвращаем появление вертикального скролла */
+  overflow: hidden;
 }
 .received-data::after{
   content: "₸";
@@ -130,7 +129,7 @@ export default {
 
 }
 .checkbox-container {
-  min-height: 50%; /* Задаем минимальную высоту для контейнера */
+  min-height: 50%; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -144,11 +143,16 @@ export default {
 }
 
 
-  .error-message {
+.error-message {
   color: red;
-  margin-top: 5px;
+  margin-top: 15px;
+  font-size: 16px; 
+  font-weight: bolder;
+  text-align: center; 
+  background-color: rgba(255, 0, 0, 0.1); 
+  padding: 5px; 
+  border-radius: 5px;
 }
-  
 
 .ref-to-main {
   position: absolute;
@@ -204,7 +208,7 @@ export default {
     cursor: pointer;
     position: relative;
     border: 2px solid black;
-    border-radius: 20px; /* Делаем круглые углы */
+    border-radius: 20px; 
     margin-bottom: 10px;
     width: 700px;
     overflow: hidden;
@@ -226,15 +230,15 @@ export default {
   font-weight: bolder;
   font-size: 25px;
   right: 0;
-  transform: translate(-10px, -10px); /* Добавляем смещение */
+  transform: translate(-10px, -10px); 
 }
 
 .option-description {
   position: absolute;
-  top: 25px; /* Расположим по вертикали на 50% */
-  transform: translateY(50%); /* Сдвигаем вниз на половину высоты */
+  top: 25px;
+  transform: translateY(50%);
   right: 10px;
-  opacity: 0.5; /* Прозрачность */
+  opacity: 0.5; 
 }
 
   
@@ -246,24 +250,24 @@ export default {
     width: 25px;
     height: 25px;
     border: 2px solid #000;
-    border-radius: 50%; /* Делаем круглые чекбоксы */
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
     margin-left: 20px;
     opacity: 0.3;
-    transition: opacity 0.3s ease-in-out; /* Плавное изменение прозрачности */
+    transition: opacity 0.3s ease-in-out;
   }
   
   .checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
     background-color: #000;
     border-color: #000;
-    opacity: 0.8; /* Сделать непрозрачным, когда выбран */
+    opacity: 0.8;
   }
   
   .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '\2713'; /* Unicode символ галочки */
+    content: '\2713'; 
     color: white;
   }
   </style>

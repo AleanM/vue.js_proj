@@ -53,9 +53,9 @@
 export default {
     computed: {
     formData() {
-      return this.$store.state.formData; // Получаем данные из хранилища
+      return this.$store.state.formData; 
     }, selectedOptions() {
-      return this.$store.state.selectedOptions; // Получаем данные из хранилища
+      return this.$store.state.selectedOptions; 
     },totalSum() {
       return this.$store.state.totalSum;
    },
@@ -68,12 +68,12 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20px; /* Добавляем небольшой отступ снизу */
+  padding-bottom: 20px;
 }
 
 .ref-to-main {
   margin-top: 40px;
-  text-align: center; /* Центрируем текст ссылки */
+  text-align: center; 
   font-size: 25px;
   font-weight: bolder;
 }
@@ -88,8 +88,8 @@ export default {
 
 
 .return-link {
-  color: black; /* Устанавливаем черный цвет текста ссылки */
-  text-decoration: none; /* Убираем подчеркивание */
+  color: black;
+  text-decoration: none; 
 }
 
 .success {

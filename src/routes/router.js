@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '@/views/HomePage.vue'; // Пример импорта компонента
 import NalogPage from '@/views/NalogPage.vue'
-import FinishPage from '@/views/FinishPage.vue'
+import InfoPage from '@/views/InfoPage.vue'
 
 const routes = [
   {
@@ -11,8 +11,8 @@ const routes = [
     path: '/nalog',
     component: NalogPage
   },{
-    path: '/finish',
-    component: FinishPage
+    path: '/info',
+    component: InfoPage
   },
 
 ];

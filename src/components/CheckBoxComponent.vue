@@ -92,7 +92,7 @@ export default {
       });
 
       this.$store.dispatch('setSelectedOptions', selectedOptionsData);
-      this.$router.push('/finish');
+      this.$router.push('/info');
     },
     
     calculatePercentage(percent) {
@@ -153,6 +153,7 @@ export default {
 .ref-to-main {
   position: absolute;
   top: 20px;
+  margin-top: 10px;
   left: 20px;
   display: flex;
   align-items: center;

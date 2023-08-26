@@ -1,5 +1,20 @@
 <template>
     <div>
-        <h1>Next Page</h1>
+
+        <CheckBoxComponent />
     </div>
 </template>
+
+<script>
+import CheckBoxComponent from '@/components/CheckBoxComponent.vue';
+
+  
+  export default {
+
+    components: {
+      CheckBoxComponent
+    },
+  };
+
+  
+</script>

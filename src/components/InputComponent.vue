@@ -51,7 +51,7 @@
     }, 
   methods: {
     validateNumber() {
-      this.iinValue = this.iinValue.replace(/\D/g, ''); // Убираем все, кроме цифр
+      this.iinValue = this.iinValue.replace(/\D/g, ''); 
     },sendData() {
       const validIIN = this.iinValue.length === 12;
       const validIncome = this.incomeValue > 0 && this.incomeValue <= 150000000;
@@ -70,7 +70,7 @@
           iin: this.iinValue,
           income: this.incomeValue
         });
-        this.$router.push('/nalog'); // Передаем данные через событие 'submit'
+        this.$router.push('/nalog');
       } else {
         if (!validName) {
           alert('Введите имя');
@@ -107,27 +107,27 @@
   .input-document{
     display: flex;
     justify-content: center;
-    margin-left: 15px; /* Выравнивание элементов по центру */
+    margin-left: 15px; 
     margin-top: 10px;
   }
 
   .input-income{
     display: flex;
     justify-content: center;
-    margin-left: 15px; /* Выравнивание элементов по центру */
+    margin-left: 15px;
     margin-top: 20px;
   }
 
   .selected-input {
     display: flex;
     justify-content: center;
-    margin-left: 15px; /* Выравнивание элементов по центру */
+    margin-left: 15px;
     margin-top: 10px; 
-    padding: 10px;/* Отступ сверху */
+    padding: 10px;
   }
   
   .centered {
-    text-align: center; /* Выравнивание текста по центру */
+    text-align: center; 
   }
   
   .input-label {
@@ -148,7 +148,7 @@
   
   .larger-dropdown {
     width: 60vh;
-    padding: 10px; /* Увеличиваем ширину выпадающего списка */
+    padding: 10px; 
   }
 
   .submit-button {
@@ -168,12 +168,12 @@
   border-radius: 10px;
   font-size: 16px;
   width:63vh;
-  -webkit-transition-duration: 0.4s; /* Safari */
+  -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
 }
 
 .submit-btn:hover{
-    background-color: whitesmoke; /* Green */
+    background-color: whitesmoke;
     color: black;
     font-weight: bolder;
     border: 3px solid #000000;

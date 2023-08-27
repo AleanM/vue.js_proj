@@ -121,6 +121,7 @@
   height: 70px;
   -webkit-transition-duration: 0.4s; 
   transition-duration: 0.4s;
+  transition: background-color 0.4s, color 0.4s, font-weight 0.4s, border 0.4s, box-shadow 0.4s;
 }
 
 .pay-btn:hover{

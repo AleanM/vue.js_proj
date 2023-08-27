@@ -149,6 +149,7 @@
 .option-description {
   position: absolute;
   top: 25px;
+  font-family: "Cuprum";
   transform: translateY(50%);
   right: 10px;
   opacity: 0.5; 

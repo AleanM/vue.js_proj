@@ -1,6 +1,7 @@
 # vue.js_proj
 
 List of required dependencies:
+
 Vue.js 3.2.13
 Vue-router 4.2.4: for routing
 Vuex 4.1.0: for state-management

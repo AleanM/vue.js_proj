@@ -1,23 +1,23 @@
 <template>
     <div>
       <ButtonComponent @click="openModal" />
-      <ModalWindow  v-if="isModalOpen" @close="closeModal">
+      <ModalWindowComponent  v-if="isModalOpen" @close="closeModal">
         <TextTitleComponent />
         <InputComponent @submit="handleFormSubmit" />
-      </ModalWindow >
+      </ModalWindowComponent >
     </div>
   </template>
   
   <script>
-  import ButtonComponent from '../components/ButtonComponent.vue';
-  import ModalWindow from '../components/ModalWindow.vue';
-  import TextTitleComponent from '../components/TextTitleComponent.vue';
-  import InputComponent from '../components/InputComponent.vue';
+  import ButtonComponent from '@/components/ButtonComponent/ButtonComponent.vue';
+  import ModalWindowComponent from '@/components/ModalWindowComponent/ModalWindowComponent.vue';
+  import TextTitleComponent from '@/components/TextTitleComponent/TextTitleComponent.vue';
+  import InputComponent from '@/components/InputComponent/InputComponent.vue';
   
 
   export default {
     components: {
-      ModalWindow,
+      ModalWindowComponent,
       ButtonComponent,
       TextTitleComponent,
       InputComponent

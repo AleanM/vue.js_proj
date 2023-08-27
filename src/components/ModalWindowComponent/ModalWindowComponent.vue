@@ -21,7 +21,9 @@
 
 
   export default {
-   
+    created() {
+    this.$router.push('/');
+  },
     data() {
       return {
         isDragging: false,
@@ -64,55 +66,7 @@
   };
   </script>
   
-  <style scoped>
-  .top-bar {
-  width: 40px;
-  height: 3px;
-  background-color: black;
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  opacity: 0.3;
-  transform: translateX(-50%);
-  cursor: pointer;
-}
-  .modal-window {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .modal-content {
-    position: relative;
-    background-color: white;
-    width: 600px;
-    height: 600px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    align-items: flex-end;
-    transform: translate(var(--translate-x, 0px), var(--translate-y, 0px));
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .modal-content.swiping {
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .close-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 40px;
-    cursor: pointer;
-  }
+  <style src="./ModalWindowComponent.styles.css">
+ 
   </style>
   

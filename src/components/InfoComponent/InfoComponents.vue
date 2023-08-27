@@ -39,13 +39,13 @@
                     <h4 >Итого оплачено за полугодие</h4>
                     <h4 >{{ totalSum }}₸</h4>
             </div>
-        </div>
+            <div class="info-section">
+                    <router-link to="/" class="return-link" style="margin: 0 auto;">
+                  Вернуться на главную
+                </router-link>
+            </div>
+         </div>
        </div>
-       <div class="ref-to-main">
-      <router-link to="/" class="return-link">
-        Вернуться на главную
-      </router-link>
-     </div>
     </div>
 </template>
 
@@ -62,105 +62,5 @@ export default {
   }
 }
 </script>
-<style>
-.page-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-.title {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.ref-to-main {
-  margin-top: 40px;
-  text-align: center; 
-  font-size: 25px;
-  font-weight: bolder;
-}
-
-.info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-weight: bolder;
-    width: 500px;
-    padding: 10px;
-}
-
-.info h4 {
-    margin: 10px 0;
-}
-
-.info-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 25px;
-    width: 100%; 
-}
-
-.no-bullets {
-    list-style-type: none;
-    padding-left: 0;
-    width: 100%;
-}
-
-
-.nalogs-info {
-    font-weight: bolder;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.tax-name {
-    flex: 1;
-    text-align: left;
-}
-
-.tax-amount {
-    text-align: right;
-}
-
-
-.return-link {
-  color: black;
-  text-decoration: none; 
-}
-
-.success {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #000;
-    border-radius: 50%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    margin-left: 20px;
-    background-color: #000;
-}
-
-.success::before {
-    content: '\2713';
-    color: white;
-}
-
+<style src="./InfoComponent.styles.css">
 </style>

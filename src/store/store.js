@@ -7,8 +7,10 @@ export default createStore({
     totalSum: 0,
     selectedOptions: [],
     formData: {},
+
   },
   mutations: {
+
     SET_SELECTED_OPTIONS(state, selectedOptions) {
       state.selectedOptions = selectedOptions;
     },

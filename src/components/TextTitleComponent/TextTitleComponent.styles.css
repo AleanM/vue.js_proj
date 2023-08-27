@@ -1,0 +1,13 @@
+.text{
+    text-align: left; 
+    margin: 0; 
+    padding: 0; 
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  .title {
+    text-align: left;
+    margin: 0; 
+    padding: 0; 
+    font-size: 25px; 
+  }

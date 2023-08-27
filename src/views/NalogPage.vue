@@ -4,7 +4,7 @@
     </div>
 </template>
 <script>
-import CheckBoxComponent from '@/components/CheckBoxComponent.vue';
+import CheckBoxComponent from '@/components/CheckboxComponent/CheckboxComponent.vue';
 
 
   

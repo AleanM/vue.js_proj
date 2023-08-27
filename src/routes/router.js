@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import HomePage from '@/views/HomePage.vue'; // Пример импорта компонента
+import HomePage from '@/views/HomePage.vue'; 
 import NalogPage from '@/views/NalogPage.vue'
 import InfoPage from '@/views/InfoPage.vue'
+
 
 const routes = [
   {
@@ -9,7 +10,7 @@ const routes = [
     component: HomePage
   }, {
     path: '/nalog',
-    component: NalogPage
+    component: NalogPage,
   },{
     path: '/info',
     component: InfoPage
@@ -21,5 +22,8 @@ const router = createRouter({
   history: createWebHistory(),
   routes
 });
+
+
+
 
 export default router;

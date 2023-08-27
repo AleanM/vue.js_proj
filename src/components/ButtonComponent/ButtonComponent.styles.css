@@ -1,3 +1,7 @@
+@font-face {
+    font-family: "Cuprum";
+    src: url("../../../public/Cuprum-Italic-VariableFont_wght.ttf");
+  }
 .center-button {
     display: block;
     margin: 0 auto;

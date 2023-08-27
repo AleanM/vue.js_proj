@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "Cuprum";
+  src: url("../../../public/Cuprum-Italic-VariableFont_wght.ttf");
+}
 .top-bar {
     width: 40px;
     height: 3px;

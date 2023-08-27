@@ -40,7 +40,7 @@
                     <h4 >{{ totalSum }}₸</h4>
             </div>
             <div class="info-section">
-                    <router-link to="/" class="return-link" style="margin: 0 auto;">
+                    <router-link to="/" class="return-link">
                   Вернуться на главную
                 </router-link>
             </div>

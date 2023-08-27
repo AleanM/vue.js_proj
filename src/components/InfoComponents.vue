@@ -71,13 +71,6 @@ export default {
   padding-bottom: 20px;
 }
 
-.ref-to-main {
-  margin-top: 40px;
-  text-align: center; 
-  font-size: 25px;
-  font-weight: bolder;
-}
-
 .title {
   display: flex;
   flex-direction: column;
@@ -86,28 +79,17 @@ export default {
   margin-bottom: 20px;
 }
 
-
-.return-link {
-  color: black;
-  text-decoration: none; 
+.ref-to-main {
+  margin-top: 40px;
+  text-align: center; 
+  font-size: 25px;
+  font-weight: bolder;
 }
 
-.success {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #000;
-    border-radius: 50%; 
+.info-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 10px;
-    margin-left: 20px;
-    background-color: #000;
-}
-
-.success::before {
-    content: '\2713';
-    color: white;
 }
 
 .info {
@@ -133,17 +115,12 @@ export default {
     width: 100%; 
 }
 
-.info-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .no-bullets {
     list-style-type: none;
     padding-left: 0;
     width: 100%;
 }
+
 
 .nalogs-info {
     font-weight: bolder;
@@ -162,5 +139,28 @@ export default {
     text-align: right;
 }
 
+
+.return-link {
+  color: black;
+  text-decoration: none; 
+}
+
+.success {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 20px;
+    background-color: #000;
+}
+
+.success::before {
+    content: '\2713';
+    color: white;
+}
 
 </style>

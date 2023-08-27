@@ -30,7 +30,7 @@
          <input class="text-input larger-dropdown" v-model="incomeValue" @input="validateNumber" v-bind:incomeValue="someValue" placeholder="Доход" min="1" max="150000000">
        </div>
     </div>
-    <div class="submit-button">
+    <div class="submit-class">
       <button class="submit-btn" @click="sendData">Рассчитать</button>
     </div>
   </template>
@@ -118,18 +118,6 @@
     margin-top: 20px;
   }
 
-  .selected-input {
-    display: flex;
-    justify-content: center;
-    margin-left: 15px;
-    margin-top: 10px; 
-    padding: 10px;
-  }
-  
-  .centered {
-    text-align: center; 
-  }
-  
   .input-label {
     font-weight: bolder;
     font-size: 16px;
@@ -145,13 +133,17 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
-  .larger-dropdown {
-    width: 60vh;
-    padding: 10px; 
-  }
 
-  .submit-button {
+
+  .selected-input {
+    display: flex;
+    justify-content: center;
+    margin-left: 15px;
+    margin-top: 10px; 
+    padding: 10px;
+  }
+  
+  .submit-class {
   display: flex;
   justify-content: center;
   margin-top: 40px;
@@ -178,5 +170,15 @@
     font-weight: bolder;
     border: 3px solid #000000;
 }
+
+.centered {
+    text-align: center; 
+  }
+  
+  
+  .larger-dropdown {
+    width: 60vh;
+    padding: 10px; 
+  }
   </style>
   

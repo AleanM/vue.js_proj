@@ -1,10 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './routes/router';
-import store from './store/store'; // Пример импорта маршрутизатора
+import store from './store/store'; 
 
 
 createApp(App)
-  .use(router) // Убедитесь, что вы используете маршрутизатор
+  .use(router) 
   .use(store)
   .mount('#app');

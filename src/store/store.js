@@ -19,7 +19,7 @@ export default createStore({
       state.totalSum = totalSum;
     },
     updateFormData(state, formData) {
-      state.formData = formData; // Обновляем данные в хранилище
+      state.formData = formData; 
     },
   },
   actions: {

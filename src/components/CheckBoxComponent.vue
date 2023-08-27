@@ -120,14 +120,13 @@ export default {
   justify-content: center;
   overflow: hidden;
 }
-.received-data::after{
-  content: "₸";
-}
+
 .income-container{
   font-weight: bolder;
   font-size: 30px;
 
 }
+
 .checkbox-container {
   min-height: 50%; 
   display: flex;
@@ -137,9 +136,69 @@ export default {
 
 }
 
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid black;
+    border-radius: 20px; 
+    margin-bottom: 10px;
+    width: 700px;
+    overflow: hidden;
+    height: 150px;
+  }
+
+.checkbox-custom {
+    width: 25px;
+    height: 25px;
+    border: 2px solid #000;
+    border-radius: 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 20px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+
+  
+  .checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
+    background-color: #000;
+    border-color: #000;
+    opacity: 0.8;
+  }
+  
+  .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
+    content: '\2713'; 
+    color: white;
+  }
+
+    
+  .checkbox-label input[type="checkbox"] {
+    display: none;
+  }
+
 .for-sum {
   min-height: 10%;
 
+}
+
+.ref-to-main {
+  position: absolute;
+  top: 20px;
+  margin-top: 10px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.received-data::after{
+  content: "₸";
 }
 
 
@@ -152,28 +211,6 @@ export default {
   background-color: rgba(255, 0, 0, 0.1); 
   padding: 5px; 
   border-radius: 5px;
-}
-
-.ref-to-main {
-  position: absolute;
-  top: 20px;
-  margin-top: 10px;
-  left: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.arrow-icon {
-  font-size: 30px;
-  font-weight: bolder;
-  margin-right: 5px;
-}
-
-.return-link {
-  color: black;
-  font-size: 24px;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 .pay-btn{
@@ -199,30 +236,10 @@ export default {
     border: 3px solid #000000;
 }
 
-
-
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    cursor: pointer;
-    position: relative;
-    border: 2px solid black;
-    border-radius: 20px; 
-    margin-bottom: 10px;
-    width: 700px;
-    overflow: hidden;
-    height: 150px;
-  }
-
-  .option-sum{
+.option-sum{
     font-weight: bolder;
     font-size: 25px;
   }
-
-  .option-sum::after {
-  content: "₸";
-}
 
   .option-label {
   position: absolute;
@@ -241,34 +258,25 @@ export default {
   opacity: 0.5; 
 }
 
-  
-  .checkbox-label input[type="checkbox"] {
-    display: none;
-  }
-  
-  .checkbox-custom {
-    width: 25px;
-    height: 25px;
-    border: 2px solid #000;
-    border-radius: 50%; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 10px;
-    margin-left: 20px;
-    opacity: 0.3;
-    transition: opacity 0.3s ease-in-out;
-  }
-  
-  .checkbox-label input[type="checkbox"]:checked + .checkbox-custom {
-    background-color: #000;
-    border-color: #000;
-    opacity: 0.8;
-  }
-  
-  .checkbox-label input[type="checkbox"]:checked + .checkbox-custom::after {
-    content: '\2713'; 
-    color: white;
-  }
+  .option-sum::after {
+  content: "₸";
+}
+
+
+
+.arrow-icon {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-right: 5px;
+}
+
+.return-link {
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
   </style>
   

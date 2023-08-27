@@ -48,8 +48,7 @@
       },
       handleMouseUp() {
         if (this.isDragging) {
-          // Determine the threshold for closing the modal
-          const threshold = 50; // Adjust this value as needed
+          const threshold = 50; 
           if (Math.abs(this.translateY) > threshold) {
             this.closeModal();
           }
@@ -69,9 +68,9 @@
   .top-bar {
   width: 40px;
   height: 3px;
-  background-color: black; /* Используйте желаемый цвет */
+  background-color: black;
   position: absolute;
-  top: 10px; /* Регулируйте отступ сверху */
+  top: 10px;
   left: 50%;
   opacity: 0.3;
   transform: translateX(-50%);
